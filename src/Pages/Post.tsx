@@ -1,9 +1,13 @@
-import PostDetail from '../components/PostDetail';
+// src/pages/Post.tsx
+import { Suspense, lazy } from 'react';
+const PostDetail = lazy(() => import('../Components/PostDetail'));
 
 const Post = () => (
-  <div>
-    <PostDetail />
-  </div>
+  <main>
+    <Suspense fallback={<div>Loading...</div>}>
+      <PostDetail />
+    </Suspense>
+  </main>
 );
 
 export default Post;

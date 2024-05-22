@@ -1,0 +1,106 @@
+.resultsContainer {
+    width: 100%;
+    max-width: 800px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .select {
+    margin-bottom: 20px;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    outline: none;
+    background-color: white;
+    color: #000;
+    width: 10rem;
+    align-self: center;
+  }
+  .select option{
+    margin-top:1rem;
+    background-color: #fff;
+  }
+  
+
+  .list ul {
+  position: relative;
+}
+.list ul li {
+  position: relative;
+  left: 0;
+  color: #fce4ec;
+  list-style: none;
+  margin: 10px 0;
+  border-left: 2px solid #f50057;
+  transition: 0.5s;
+  cursor: pointer;
+}
+.list ul li:hover {
+  left: 10px;
+  color:white
+}
+.list ul li span {
+  position: relative;
+  padding: 8px;
+  padding-left: 12px;
+  display: inline-block;
+  z-index: 1;
+  transition: 0.5s;
+  color:#000
+}
+.list ul li span a {
+  color:black
+}
+.list ul li:hover span a {
+  color: #fff;
+}
+.list ul li:before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #f50057;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: 0.5s;
+}
+.list ul li:hover:before {
+  transform: scaleX(1);
+}
+  
+.loaderContainer{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.loader {
+  width: 15px;
+  aspect-ratio: 1;
+  position: relative;
+}
+.loader::before,
+.loader::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: #000;
+}
+.loader::before {
+  box-shadow: -25px 0;
+  animation: l-1 1s infinite linear;
+}
+.loader::after {
+  transform: rotate(0deg) translateX(25px);
+  animation: l-2 1s infinite linear;
+}
+
+@keyframes l-1 {
+    100%{transform: translateX(25px)}
+}
+@keyframes l-2 {
+    100%{transform: rotate(-180deg) translateX(25px)}
+}

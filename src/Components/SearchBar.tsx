@@ -1,29 +1,30 @@
-import React, {useEffect} from 'react';
-import { useSearchParams } from 'react-router-dom';
-import { useSearchStore } from '../store/searchStore';
+import React, { useState } from 'react';
+import { useSearchStore } from '../Store/searchStore';
+import styles from './SearchBar.module.css';
 
-const SearchBar = () => {
-  const [searchParams, setSearchParams] = useSearchParams();
+const SearchBar: React.FC = () => {
   const { query, setQuery } = useSearchStore();
+  const [inputValue, setInputValue] = useState(query);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const newQuery = e.target.value;
-    setQuery(newQuery);
-    setSearchParams({ query: newQuery });
+    setInputValue(e.target.value);
   };
 
-useEffect(() => {
-    const initialQuery = searchParams.get('query') || '';
-    setQuery(initialQuery);
-  }, [searchParams, setQuery]);
+  const handleSearch = () => {
+    setQuery(inputValue);
+  };
 
   return (
-    <input
-      type="text"
-      value={query}
-      onChange={handleInputChange}
-      placeholder="Search Hacker News..."
-    />
+    <div className={styles.searchContainer}>
+      <input
+        type="text"
+        value={inputValue}
+        onChange={handleInputChange}
+        placeholder="Search Hacker News"
+        className={styles.input}
+      />
+      <button onClick={handleSearch} className={styles.button}>Search</button>
+    </div>
   );
 };
 
