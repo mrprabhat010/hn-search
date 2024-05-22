@@ -33,7 +33,6 @@ export const useSearch = () => {
     queryKey: ['searchResults', debouncedQuery],
     queryFn: () => fetchSearchResults(debouncedQuery),
     enabled: !!debouncedQuery, // Enable the query only if there is a query
-    cacheTime: 5 * 60 * 1000, // Cache time in milliseconds
     staleTime: 1 * 60 * 1000, // Stale time in milliseconds
   });
 };
