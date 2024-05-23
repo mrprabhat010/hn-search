@@ -27,7 +27,7 @@ export const useSearch = () => {
     if (query !== searchParams.get('query')) {
       setSearchParams({ query });
     }
-  }, [query, searchParams, setSearchParams]);
+  }, [query]);
 
   return useQuery({
     queryKey: ['searchResults', debouncedQuery],

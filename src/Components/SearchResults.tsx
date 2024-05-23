@@ -19,10 +19,11 @@ const SearchResults: React.FC = () => {
   const [sortBy, setSortBy] = useState('relevance');
 
   if (isLoading) return <div className={styles.loaderContainer}>
-    <div className='loader'></div>
+    <div className={styles.loader}></div>
   </div>;
   if (error) return <div>Error loading results</div>;
-  if (!data || !data.hits) return <div>No results found</div>;
+  if(!data) return <div>Enter Value to Search Hacker News.</div>
+  if (!data?.hits) return <div>No results found</div>;
 
   const sortedResults = sortResults([...data.hits], sortBy);
 
