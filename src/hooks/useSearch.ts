@@ -4,7 +4,7 @@ import { useSearchParams } from 'react-router-dom';
 import { useEffect } from 'react';
 import { useDebounce } from './useDebounce';
 const fetchSearchResults = async (query: string) => {
-  const response = await fetch(`http://hn.algolia.com/api/v1/search?query=${query}`);
+  const response = await fetch(`https://hn.algolia.com/api/v1/search?query=${query}`);
   if (!response.ok) {
     throw new Error('Network response was not ok');
   }

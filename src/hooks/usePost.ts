@@ -2,7 +2,7 @@
 import { useQuery } from '@tanstack/react-query';
 
 const fetchPostDetails = async (id: string) => {
-  const response = await fetch(`http://hn.algolia.com/api/v1/items/${id}`);
+  const response = await fetch(`https://hn.algolia.com/api/v1/items/${id}`);
   if (!response.ok) {
     throw new Error('Network response was not ok');
   }
